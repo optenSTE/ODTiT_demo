@@ -1,6 +1,40 @@
 # ************************************************************************************
 # Описание всех решеток
 # ************************************************************************************
+
+# решетки ОДТиТ-7-0
+sensor_A101BC4 = dict()
+sensor_A101BC4['ID'] = 'A101BC4'
+sensor_A101BC4['type'] = 'os4100'
+sensor_A101BC4['name'] = 'tA101BC4'
+sensor_A101BC4['WL0'] = 1548304.46
+sensor_A101BC4['T0'] = 28.41
+sensor_A101BC4['ST'] = 0.00001833
+sensor_A101BC4['Pmin'] = -60
+sensor_A101BC4['Pmax'] = 65535
+
+sensor_A102069 = dict()
+sensor_A102069['ID'] = 'A102069'
+sensor_A102069['type'] = 'os3110'
+sensor_A102069['name'] = 'sA102069'
+sensor_A102069['WL0'] = 1560601.35
+sensor_A102069['T0'] = 28.41
+sensor_A102069['FG'] = 0.89
+sensor_A102069['CTET'] = 16.6
+sensor_A102069['Pmin'] = -60
+sensor_A102069['Pmax'] = 65535
+
+sensor_A10218F = dict()
+sensor_A10218F['ID'] = 'A10218F'
+sensor_A10218F['type'] = 'os3110'
+sensor_A10218F['name'] = 'sA10218F'
+sensor_A10218F['WL0'] = 1568628.39
+sensor_A10218F['T0'] = 28.41
+sensor_A10218F['FG'] = 0.89
+sensor_A10218F['CTET'] = 16.6
+sensor_A10218F['Pmin'] = -60
+sensor_A10218F['Pmax'] = 65535
+
 # решетки ОДТиТ-7-1
 sensor_A102794 = dict()
 sensor_A102794['ID'] = 'A102794'
@@ -169,6 +203,31 @@ sensor_A102D63['Pmax'] = 65535
 # ************************************************************************************
 # Описание всех измерителей
 # ************************************************************************************
+odtit7_0 = dict()
+odtit7_0['version'] = '0.1'  # 'Версия формата описания измерителя'
+odtit7_0['ID'] = 'ODTiT-7-0'  # 'ID измерителя'
+odtit7_0['Name'] = u'ODTiT-7-0'  # 'Имя измерителя'
+odtit7_0['Sensor3110_1'] = sensor_A102069  # 'Первая натяжная решетка'
+odtit7_0['Sensor3110_2'] = sensor_A10218F  # 'Вторая натяжная решетка'
+odtit7_0['Sensor4100'] = sensor_A101BC4  # 'Температурная решетка'
+odtit7_0['x55_channel'] = 1  # 'Номер порта x55  # к которому подключено измерителя'
+odtit7_0['x55_SoL_compensation'] = -959.0  # 'Компенсация за длину линии, пм'
+odtit7_0['CTES'] = 16.615  # 'КТЛР детали'
+odtit7_0['Distance'] = 0.5000  # 'Оптическое расстояние от измерителя до первой решетки, м'
+odtit7_0['E'] = 215092125800.0  # 'Модуль Юнга детали'
+odtit7_0['Asize'] = 16.0  # 'размер рабочей области (толщина), мм'
+odtit7_0['Bsize'] = 15.0  # 'размер рабочей области (высота), мм'
+odtit7_0['Tmin'] = -30.0  # 'минимальная эксплутационная температура, С'
+odtit7_0['Tmax'] = 50.0  # 'максимальная эксплутационная температура, С'
+odtit7_0['Fmin'] = 100.0  # 'максимальное тяжение провода, даН'
+odtit7_0['Fmax'] = 3600.0  # 'минимальное тяжение провода, даН'
+odtit7_0['Freserve'] = 1000.0  # 'запас по тяжению на изгиб (расширяет диапазон Fmin-Fmax в обе стороны), даН'
+odtit7_0['SpanRopeDiametr'] = 11.3  # 'Диаметр троса, мм'
+odtit7_0['SpanRopeLen'] = 159.0  # 'Длина троса в пролете, м'
+odtit7_0['SpanRopeDensity'] = 0.417  # 'Погонная масса троса, кг/м'
+odtit7_0['SpanRopeEJ'] = 5.04  # 'Характеристика троса - модуль упругости * момент инерции, Н*м^2'
+odtit7_0['Bending_sensivity'] = 3.27  # 'Чувствительность к поперечным нагрузкам, ustr/daN'
+
 odtit7_1 = dict()
 odtit7_1['version'] = '0.2'  # 'Версия формата описания измерителя'
 odtit7_1['ID'] = 'ODTiT-7-1'  # 'ID измерителя'
@@ -312,8 +371,9 @@ si255_instrument['DetectionSettings'] = ''  # 'Настройки прибора
 
 # измерители в виде списка - это сохранит порядок следования измерителей
 si255_instrument['devices'] = list()
-si255_instrument['devices'].append(odtit7_1)
-si255_instrument['devices'].append(odtit7_2)
-si255_instrument['devices'].append(odtit16_1)
-si255_instrument['devices'].append(odtit16_2)
-si255_instrument['devices'].append(odtit16_3)
+si255_instrument['devices'].append(odtit7_0)
+# si255_instrument['devices'].append(odtit7_1)
+# si255_instrument['devices'].append(odtit7_2)
+# si255_instrument['devices'].append(odtit16_1)
+# si255_instrument['devices'].append(odtit16_2)
+# si255_instrument['devices'].append(odtit16_3)
